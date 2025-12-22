@@ -1,6 +1,12 @@
-# Video Downloader
+<div align='center'>
+    <br/>
+    <br/>
+    <h3>tuitube</h3>
+    <p>TUI to download videos from YouTube, 𝕏, Twitch, Instagram, Bilibili and more using yt-dlp CLI</p>
+    <br/>
+    <br/>
+</div>
 
-> Download videos from YouTube, 𝕏, Twitch, Instagram, Bilibili and more using yt-dlp CLI
 
 ![Demo](tuitube-screenshot.png)
 
