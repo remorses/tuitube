@@ -185,6 +185,7 @@
     "date-fns": "^4.1.0",
     "execa": "^9.6.0",
     "pretty-bytes": "^6.1.1",
+    "react": "^19.2.3",
     "srt-parser-2": "^1.2.3",
     "validator": "^13.15.23"
   },

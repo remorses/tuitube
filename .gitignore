@@ -7,3 +7,4 @@
 .DS_Store
 raycast-env.d.ts
 app.log
+dist
