@@ -38,7 +38,7 @@ import Installer from "./views/installer.js";
 import Updater from "./views/updater.js";
 
 const {
-  downloadPath,
+  downloadPath = process.cwd(),
   autoLoadUrlFromClipboard,
   autoLoadUrlFromSelectedText,
   enableBrowserExtensionSupport,
