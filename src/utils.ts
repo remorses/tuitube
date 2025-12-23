@@ -8,6 +8,12 @@ import { execSync } from "child_process";
 export const isWindows = process.platform === "win32";
 export const isMac = process.platform === "darwin";
 
+function getExtendedPath() {
+  const basePath = process.env.PATH || "";
+  const extraPaths = ["/opt/homebrew/bin", "/usr/local/bin", "/usr/bin", "/bin"];
+  return [...extraPaths, basePath].join(":");
+}
+
 function sanitizeWindowsPath(path: string): string {
   return path.replace(/\r/g, "").replace(/\n/g, "").trim();
 }
@@ -39,8 +45,13 @@ export const getytdlPath = () => {
 
   try {
     const cmd = isWindows ? "where yt-dlp" : "which yt-dlp";
-    return sanitizeWindowsPath(execSync(cmd).toString().trim().split("\n")[0]);
+    return sanitizeWindowsPath(execSync(cmd, { env: { ...process.env, PATH: getExtendedPath() } }).toString().trim().split("\n")[0]);
   } catch {
+    // Check common paths on macOS
+    const commonPaths = ["/opt/homebrew/bin/yt-dlp", "/usr/local/bin/yt-dlp", `${homebrewPath}/bin/yt-dlp`];
+    for (const p of commonPaths) {
+      if (existsSync(p)) return p;
+    }
     return "";
   }
 };
@@ -51,8 +62,12 @@ export const getffmpegPath = () => {
 
   try {
     const cmd = isWindows ? "where ffmpeg" : "which ffmpeg";
-    return sanitizeWindowsPath(execSync(cmd).toString().trim().split("\n")[0]);
+    return sanitizeWindowsPath(execSync(cmd, { env: { ...process.env, PATH: getExtendedPath() } }).toString().trim().split("\n")[0]);
   } catch {
+    const commonPaths = ["/opt/homebrew/bin/ffmpeg", "/usr/local/bin/ffmpeg", `${homebrewPath}/bin/ffmpeg`];
+    for (const p of commonPaths) {
+      if (existsSync(p)) return p;
+    }
     return "";
   }
 };
@@ -63,8 +78,12 @@ export const getffprobePath = () => {
 
   try {
     const cmd = isWindows ? "where ffprobe" : "which ffprobe";
-    return sanitizeWindowsPath(execSync(cmd).toString().trim().split("\n")[0]);
+    return sanitizeWindowsPath(execSync(cmd, { env: { ...process.env, PATH: getExtendedPath() } }).toString().trim().split("\n")[0]);
   } catch {
+    const commonPaths = ["/opt/homebrew/bin/ffprobe", "/usr/local/bin/ffprobe", `${homebrewPath}/bin/ffprobe`];
+    for (const p of commonPaths) {
+      if (existsSync(p)) return p;
+    }
     return "";
   }
 };
