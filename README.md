@@ -8,10 +8,6 @@
 </div>
 
 
- w         w  w         8
-w8ww 8   8 w w8ww 8   8 88b. .d88b
- 8   8b d8 8  8   8b d8 8  8 8.dP'
- Y8P `Y8P8 8  Y8P `Y8P8 88P' `Y88P
 
 ![Demo](tuitube-screenshot.png)
 
