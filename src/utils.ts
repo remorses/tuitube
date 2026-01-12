@@ -1,4 +1,4 @@
-import { getPreferenceValues } from "@raycast/api";
+import { getPreferenceValues } from "termcast";
 import { formatDuration, intervalToDuration } from "date-fns";
 import validator from "validator";
 import { Format, Video } from "./types.js";
