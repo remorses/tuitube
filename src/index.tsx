@@ -14,9 +14,9 @@ import {
   showHUD,
   showToast,
   Toast,
-} from "@raycast/api";
+} from "termcast";
 import { useEffect, useMemo, useState } from "react";
-import { useForm, usePromise } from "@raycast/utils";
+import { useForm, usePromise } from "@termcast/utils";
 import { execa } from "execa";
 import {
   DownloadOptions,

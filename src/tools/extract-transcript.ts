@@ -1,4 +1,4 @@
-import { withCache } from "@raycast/utils";
+import { withCache } from "@termcast/utils";
 import extractTranscript from "../transcript.js";
 
 type Input = {

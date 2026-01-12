@@ -9,7 +9,7 @@ import {
   open,
   openExtensionPreferences,
   showToast,
-} from "@raycast/api";
+} from "termcast";
 import { ExecaError, execa } from "execa";
 import { getWingetPath, homebrewPath, isMac, isWindows } from "../utils.js";
 
